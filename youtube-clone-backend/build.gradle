@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.12-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.learning'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'io.awspring.cloud', name: 'spring-cloud-aws-context', version: '2.3.0-RC2'
+	implementation group: 'io.awspring.cloud', name: 'spring-cloud-aws-autoconfigure', version: '2.3.0-RC2'
+}
+
+test {
+	useJUnitPlatform()
+}

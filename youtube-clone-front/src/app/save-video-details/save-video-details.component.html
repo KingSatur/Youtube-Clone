@@ -1,0 +1,38 @@
+<div fxLayout="row wrap">
+  <div fxFlex="20%">Hi there</div>
+  <div fxFlex="30%">
+    <form [formGroup]="videoForm">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Initial Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="PUBLIC">Public</mat-option>
+            <mat-option value="PRIVATE">Private</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="videoForm.invalid"
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+  <div fxFlex="30%">Video Player</div>
+  <div fxFlex="20%">Hi</div>
+</div>
