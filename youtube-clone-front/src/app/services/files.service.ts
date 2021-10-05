@@ -11,6 +11,8 @@ export class FilesService {
 
   public uploadVideo(fileEntry: any): Promise<Observable<UploadVideoResponse>> {
     return new Promise((resolve, reject) => {
+      console.log('Hola');
+
       fileEntry.file((file) => {
         const formData = new FormData();
         formData.append('file', file, fileEntry?.name);
